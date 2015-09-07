@@ -4,7 +4,7 @@ L'objectif de ce chapitre est de présenter les concepts essentiels de la progra
 
 ## Constructeur
 
-Reprenons l'exemple de notre classe `CompteBancaire` du chapitre précédent.
+Reprenons l'exemple de la classe `CompteBancaire` du chapitre précédent.
 
 ![Diagramme de la classe CompteBancaire](../images/uml_compte_bancaire_4.png)
 
@@ -32,7 +32,7 @@ public class CompteBancaire
 
 **ATTENTION** : le nom du constructeur doit être identique au nom de la classe, et sa définition ne comporte pas le mot-clé `void`.
 
-L'utilisation d'un constructeur se fait au moment de l'instanciation de l'objet (opérateur `new`), en passant en paramètres les futures valeurs des attributs de l'objet créé.
+L'utilisation d'un constructeur se fait au moment de l'instanciation de l'objet (opérateur `new`), en passant en paramètres les futures valeurs des attributs de l'objet à créer.
 
 ```csharp
 // déclaration et instanciation d'un nouvel objet en utilisant son constructeur
@@ -51,7 +51,7 @@ Console.WriteLine(comptePierre.Decrire());
 
 ## Encapsulation
 
-L'écriture de classes offre d'autres avantages que le simple regroupement de données et de traitements au même endroit. Parmi ces avantages figure la possibilité de restreindre l'accès à certains éléments de la classe. C'est ce que l'on appelle **l'encapsulation**.
+L'écriture de classes offre d'autres avantages que le simple regroupement de données et de traitements. Parmi ceux-ci figure la possibilité de restreindre l'accès à certains éléments de la classe. C'est ce que l'on appelle **l'encapsulation**.
 
 Exemple d'utilisation
 ---------------------
@@ -182,7 +182,7 @@ En remplaçant l'accès direct à un attribut par l'utilisation d'une méthode, 
 
 ### Attributs en lecture seule
 
-On observe dans l'exemple ci-dessus qu'on peut à nouveau modifier directement les données d'un compte. Pour interdire ces modifications tout en permettant de lire les informations d'un compte, il suffit de supprimer les accesseurs en écriture (*setters*).
+On observe dans l'exemple ci-dessus qu'il est à nouveau possible de modifier directement les données d'un compte. Pour interdire ces modifications tout en permettant de lire les informations d'un compte, il suffit de supprimer les accesseurs en écriture (*setters*).
 
 ```csharp
 public class CompteBancaire
@@ -227,7 +227,7 @@ L'héritage est l'un des mécanismes fondamentaux de la POO. Il permet de créer
 
 Supposons maintenant que nous ayons à gérer un nouveau type de compte : le compte épargne. Comme un compte classique, un compte épargne possède un titulaire, un solde et une devise. Sa spécificité est qu'il permet d'appliquer des intérêts à l'argent déposé sur le compte.
 
-Bien sûr, il serait possible de concevoir une classe `CompteEpargne` totalement distincte de la classe `CompteBancaire`. Cependant, on constate qu'un compte épargne possède toutes les caractéristiques d'un compte bancaire, ainsi que des caractéristiques spécifiques. Nous allons donc définir un compte épargne par **héritage** de la définition d’un compte bancaire.
+Bien sûr, il serait possible de concevoir une classe `CompteEpargne` totalement distincte de la classe `CompteBancaire`. Cependant, on constate qu'un compte épargne possède toutes les caractéristiques d'un compte bancaire, **plus** des caractéristiques spécifiques. Nous allons donc définir un compte épargne par **héritage** de la définition d’un compte bancaire.
 
 ```csharp
 public class CompteEpargne : CompteBancaire
